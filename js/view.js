@@ -34,16 +34,16 @@ class ImageView {
         });
     }
 
-    // Renderizar a galeria de imagens
-    renderGallery(images) {
+    // Renderizar a galeria de plantas
+    renderGallery(plants) {
         // Aplicar efeito de fade out
         this.galleryContainer.classList.add('fade-out');
         
         setTimeout(() => {
-            if (images.length === 0) {
+            if (plants.length === 0) {
                 this.renderNoResults();
             } else {
-                this.renderImages(images);
+                this.renderPlants(plants);
             }
             
             // Aplicar efeito de fade in
@@ -56,14 +56,14 @@ class ImageView {
         }, 150);
     }
 
-    // Renderizar imagens
-    renderImages(images) {
-        this.galleryContainer.innerHTML = images.map(image => `
-            <div class="image-card" data-id="${image.id}">
-                <img src="${image.url}" alt="${image.title}" loading="lazy">
+    // Renderizar plantas
+    renderPlants(plants) {
+        this.galleryContainer.innerHTML = plants.map(plant => `
+            <div class="image-card" data-id="${plant.id}">
+                <img src="${plant.url}" alt="${plant.title}" loading="lazy">
                 <div class="image-info">
-                    <h3 class="image-title">${image.title}</h3>
-                    <span class="image-category">${this.capitalizeFirst(image.category)}</span>
+                    <h3 class="image-title">${plant.title}</h3>
+                    <span class="image-category">${this.capitalizeFirst(plant.category)}</span>
                 </div>
             </div>
         `).join('');
@@ -73,7 +73,7 @@ class ImageView {
     renderNoResults() {
         this.galleryContainer.innerHTML = `
             <div class="no-results">
-                <h3>Nenhuma imagem encontrada</h3>
+                <h3>Nenhuma planta encontrada</h3>
                 <p>Tente ajustar os filtros ou termos de busca</p>
             </div>
         `;
@@ -104,7 +104,7 @@ class ImageView {
 
     // Mostrar estatísticas
     showStats(stats) {
-        console.log('Estatísticas da galeria:', stats);
+        console.log('Estatísticas da galeria de flora:', stats);
     }
 
     // Método auxiliar para capitalizar primeira letra
@@ -139,8 +139,8 @@ class ImageView {
     showLoading() {
         this.galleryContainer.innerHTML = `
             <div class="loading" style="text-align: center; padding: 2rem;">
-                <div style="display: inline-block; width: 40px; height: 40px; border: 4px solid #f3f3f3; border-top: 4px solid #667eea; border-radius: 50%; animation: spin 1s linear infinite;"></div>
-                <p style="margin-top: 1rem; color: #6c757d;">Carregando imagens...</p>
+                <div style="display: inline-block; width: 40px; height: 40px; border: 4px solid #f3f3f3; border-top: 4px solid #4a7c59; border-radius: 50%; animation: spin 1s linear infinite;"></div>
+                <p style="margin-top: 1rem; color: #6c757d;">Carregando plantas...</p>
             </div>
         `;
     }
