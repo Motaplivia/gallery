@@ -97,19 +97,6 @@ class ImageController {
         });
     }
 
-    // Método para adicionar nova imagem (para futuras expansões)
-    addImage(imageData) {
-        // Aqui você poderia adicionar lógica para adicionar novas imagens
-        // Por enquanto, apenas atualizamos a galeria
-        this.updateGallery();
-    }
-
-    // Método para remover imagem (para futuras expansões)
-    removeImage(imageId) {
-        // Aqui você poderia adicionar lógica para remover imagens
-        // Por enquanto, apenas atualizamos a galeria
-        this.updateGallery();
-    }
 
     // Método para obter estatísticas detalhadas
     getDetailedStats() {
@@ -128,13 +115,6 @@ class ImageController {
         this.model.setCategory('todas');
         this.model.setSearch('');
         this.updateGallery();
-    }
-
-    // Método para ir para página específica
-    goToPage(pageNumber) {
-        if (this.model.goToPage(pageNumber)) {
-            this.updateGallery();
-        }
     }
 
     // Método para obter imagens filtradas (para debug)

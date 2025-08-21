@@ -31,7 +31,7 @@ class GalleryApp {
             this.setupPerformanceOptimizations();
             this.setupErrorHandling();
 
-            console.log('🌿 Galeria de Flora MVC inicializada com sucesso!');
+            console.log('🌿 Photinhos inicializada com sucesso!');
             console.log('📊 Estatísticas iniciais:', this.controller.getDetailedStats());
 
         } catch (error) {
@@ -146,38 +146,6 @@ class GalleryApp {
         return this.view;
     }
 
-    // Método para testar funcionalidades
-    testFunctionality() {
-        console.log('🧪 Testando funcionalidades da galeria de flora...');
-        
-        // Testar filtros
-        console.log('🌸 Testando filtros de plantas...');
-        this.controller.handleCategoryChange('flores');
-        setTimeout(() => {
-            this.controller.handleCategoryChange('arvores');
-            setTimeout(() => {
-                this.controller.handleCategoryChange('todas');
-            }, 1000);
-        }, 1000);
-
-        // Testar busca
-        setTimeout(() => {
-            console.log('🔍 Testando busca por plantas...');
-            this.controller.handleSearchChange('rosa');
-            setTimeout(() => {
-                this.controller.handleSearchChange('');
-            }, 2000);
-        }, 3000);
-
-        // Testar paginação
-        setTimeout(() => {
-            console.log('📄 Testando paginação...');
-            this.controller.handleNextPage();
-            setTimeout(() => {
-                this.controller.handlePrevPage();
-            }, 1000);
-        }, 5000);
-    }
 }
 
 // Inicializar a aplicação quando o script for carregado

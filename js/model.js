@@ -146,7 +146,7 @@ class ImageModel {
         this.currentCategory = 'todas';
         this.currentSearch = '';
         this.currentPage = 1;
-        this.imagesPerPage = 4;
+        this.imagesPerPage = 6;
     }
 
     // Obter todas as imagens
@@ -225,16 +225,6 @@ class ImageModel {
         const paginationInfo = this.getPaginationInfo();
         if (paginationInfo.hasPrevPage) {
             this.currentPage--;
-            return true;
-        }
-        return false;
-    }
-
-    // Ir para página específica
-    goToPage(page) {
-        const paginationInfo = this.getPaginationInfo();
-        if (page >= 1 && page <= paginationInfo.totalPages) {
-            this.currentPage = page;
             return true;
         }
         return false;
