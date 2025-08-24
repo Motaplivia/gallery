@@ -4,11 +4,11 @@ Uma galeria de plantas e flores moderna desenvolvida em JavaScript puro seguindo
 
 ## ✨ Funcionalidades
 
-- **Filtragem por Categorias**: Flores, Árvores, Suculentas, Ervas, Jardim
+- **Filtragem por Categorias**: Flores, Árvores, Suculentas, Ervas, Frutíferas
 - **Busca por Palavra-chave**: Pesquisa em nomes, categorias e características das plantas
-- **Paginação**: Exibe 4 plantas por página com navegação
+- **Paginação**: Exibe 8 plantas por página com navegação
 - **Efeitos de Transição**: Animações suaves de fade in/out
-- **Design Responsivo**: Interface moderna com tema botânico
+- **Design Responsivo**: Interface simples, moderna e intuitiva com tema botânico
 - **Navegação por Teclado**: Atalhos para navegação rápida
 
 ## 🏗️ Arquitetura MVC
@@ -74,13 +74,12 @@ gallery-mvc/
 - Busca por nome, categoria ou características
 
 ### Paginação
-- 6 plantas por página
+- 8 plantas por página
 - Navegação anterior/próxima
 - Indicador de página atual
 - Botões desabilitados quando apropriado
 
 ### Animações
-- Fade in/out ao trocar plantas
 - Efeito escalonado no carregamento
 - Transições suaves
 
