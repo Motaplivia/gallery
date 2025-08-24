@@ -28,7 +28,7 @@ class ImageView {
             }
         });
 
-        // Prevenir que cliques dentro do modal-content fechem o modal
+        // Prevenir que cliques dentro do modal o fechem
         this.modalContent = this.modal.querySelector('.modal-content');
         this.modalContent.addEventListener('click', (e) => {
             e.stopPropagation();
@@ -36,12 +36,12 @@ class ImageView {
     }
 
     setupEventListeners() {
-        // Evento de buscar imagens
+        // Buscar imagens
         this.searchInput.addEventListener('input', (e) => {
             this.onSearchChange && this.onSearchChange(e.target.value);
         });
 
-        // Eventos de categoria
+        // Selecionar categoria
         this.categoryButtons.forEach(button => {
             button.addEventListener('click', (e) => {
                 const category = e.target.dataset.category;
@@ -49,7 +49,7 @@ class ImageView {
             });
         });
 
-        // Eventos de paginação
+        // Paginação
         this.prevBtn.addEventListener('click', () => {
             this.onPrevPage && this.onPrevPage();
         });
@@ -59,9 +59,9 @@ class ImageView {
         });
     }
 
-    // Mostrar a galeria de plantas
+    // Mostrar as imagens na galeria
     renderGallery(plants) {
-        // Aplicar efeito de fade out
+        
         this.galleryContainer.classList.add('fade-out');
         
         setTimeout(() => {
@@ -71,7 +71,6 @@ class ImageView {
                 this.renderPlants(plants);
             }
             
-            // Aplicar efeito de fade in
             this.galleryContainer.classList.remove('fade-out');
             this.galleryContainer.classList.add('fade-in');
             
@@ -81,7 +80,7 @@ class ImageView {
         }, 150);
     }
 
-    // Mostrar cards das plantas
+    // Mostrar imagens 
     renderPlants(plants) {
         this.galleryContainer.innerHTML = plants.map(plant => `
             <div class="image-card" data-id="${plant.id}">
@@ -98,7 +97,7 @@ class ImageView {
         this.bindImageClick();
     }
 
-    // Mostrar mensagem de "nenhum resultado"
+    // Mostrar mensagem se não forem encontrados resultados
     renderNoResults() {
         this.galleryContainer.innerHTML = `
             <div class="no-results">
@@ -135,7 +134,7 @@ class ImageView {
         console.log('Estatísticas da galeria de flora:', stats);
     }
 
-    // Método auxiliar para capitalizar primeira letra digitada
+    // Capitaliza a primeira letra digitada
     capitalizeFirst(str) {
         return str.charAt(0).toUpperCase() + str.slice(1);
     }
@@ -163,7 +162,7 @@ class ImageView {
         card.style.animation = 'fadeInUp 0.6s ease forwards';
     }
 
-    // Mostrar carregamento
+    // Mostrar loading
     showLoading() {
         this.galleryContainer.innerHTML = `
             <div class="loading" style="text-align: center; padding: 2rem;">
@@ -173,7 +172,7 @@ class ImageView {
         `;
     }
 
-    // Esconder carregamento
+    // Esconder loading
     hideLoading() {
        
     }

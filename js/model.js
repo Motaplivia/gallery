@@ -181,7 +181,7 @@ this.images = [
         this.currentCategory = 'todas';
         this.currentSearch = '';
         this.currentPage = 1;
-        this.imagesPerPage = 6;
+        this.imagesPerPage = 8;
     }
 
     // Obter imagens
@@ -200,7 +200,7 @@ this.images = [
                 if (Array.isArray(image.category)) {
                     return image.category.includes(this.currentCategory);
                 }
-                // Se for string, compara normalmente
+                // Se for string, apenas compara
                 return image.category === this.currentCategory;
             });
         }
@@ -228,12 +228,12 @@ this.images = [
         return filtered;
     }
 
-    // Obter imagens para a página atual
+    // Retorna as imagens da página atual
 getCurrentPageImages() {
     const filtered = this.getFilteredImages();
     const totalPages = Math.max(1, Math.ceil(filtered.length / this.imagesPerPage));
 
-    // Ajusta currentPage se estiver acima do total de páginas
+    // Garante que a página exibida não ultrapasse o total disponível
     if (this.currentPage > totalPages) {
         this.currentPage = totalPages;
     }
