@@ -31,14 +31,22 @@ Uma galeria de plantas e flores moderna desenvolvida em JavaScript puro seguindo
 ## 📁 Estrutura do Projeto
 
 ```
-gallery/
+gallery-mvc/
 ├── index.html          # Página principal
+├── style/
+│   └── style.css       # Estilo da página
 ├── js/
 │   ├── model.js        # Modelo de dados
 │   ├── view.js         # Interface do usuário
 │   ├── controller.js   # Controlador
 │   └── app.js          # Inicializador
-├── img/                # Pasta para imagens (opcional)
+├── img/                # Pasta para as imagens
+│    └── plantas/
+│         ├── arvores/  
+│         ├── ervas/
+│         ├── flores/
+│         ├── frutiferas/
+│         └── suculentas /                    
 └── README.md           # Documentação
 ```
 
@@ -55,19 +63,18 @@ gallery/
 
 ### Filtros de Categoria
 - **Todas**: Exibe todas as plantas
-- **Flores**: Rosas, girassóis, lavanda, tulipas
+- **Flores**: Rosas, sakuras, lírio do campo, lírio do vale
 - **Árvores**: Carvalho, bambu, palmeira, bétula
 - **Suculentas**: Echeveria, aloe vera, cacto, sedum
 - **Ervas**: Manjericão, alecrim, hortelã, sálvia
-- **Jardim**: Jardim zen, vertical, de flores, botânico
+- **Frutíferas**: Laranjeira, figueira, romãzeira , mangueira
 
 ### Sistema de Busca
 - Pesquisa em tempo real
 - Busca por nome, categoria ou características
-- Debounce de 300ms para otimização
 
 ### Paginação
-- 4 plantas por página
+- 6 plantas por página
 - Navegação anterior/próxima
 - Indicador de página atual
 - Botões desabilitados quando apropriado
@@ -75,14 +82,7 @@ gallery/
 ### Animações
 - Fade in/out ao trocar plantas
 - Efeito escalonado no carregamento
-- Hover effects nos cards
 - Transições suaves
-
-## ⌨️ Atalhos de Teclado
-
-- `Ctrl/Cmd + ←`: Página anterior
-- `Ctrl/Cmd + →`: Próxima página
-- `Escape`: Resetar filtros
 
 ## 🛠️ Tecnologias Utilizadas
 
@@ -90,61 +90,23 @@ gallery/
 - **HTML5**: Estrutura semântica
 - **CSS3**: Estilos modernos com gradientes e animações
 - **Padrão MVC**: Arquitetura organizada e escalável
+- **Font Awesome**: Biblioteca de ícones
 
 ## 🌱 Dados das Plantas
 
-O projeto inclui 20 plantas de exemplo do Unsplash, organizadas em 5 categorias:
-- 4 flores (rosa, girassol, lavanda, tulipa)
-- 4 árvores (carvalho, bambu, palmeira, bétula)
-- 4 suculentas (echeveria, aloe vera, cacto, sedum)
-- 4 ervas (manjericão, alecrim, hortelã, sálvia)
-- 4 jardins (zen, vertical, de flores, botânico)
+O projeto inclui 25 imagens de plantas, organizadas em 5 categorias:
+- 5 flores
+- 5 árvores (carvalho, bambu, palmeira, bétula)
+- 5 suculentas (echeveria, aloe vera, cacto, sedum)
+- 5 ervas (manjericão, alecrim, hortelã, sálvia)
+- 5 jardins (zen, vertical, de flores, botânico)
 
 Cada planta possui:
-- ID único
+- ID
 - Nome descritivo
 - Categoria botânica
 - URL da imagem
 - Palavras-chave para busca
-
-## 🔧 Personalização
-
-### Adicionar Novas Plantas
-Edite o array `images` no arquivo `model.js`:
-
-```javascript
-{
-    id: 21,
-    title: "Nova Planta",
-    category: "flores",
-    url: "https://exemplo.com/planta.jpg",
-    keywords: ["palavra1", "palavra2"]
-}
-```
-
-### Modificar Categorias
-Edite os botões no `index.html` e as categorias no `model.js`.
-
-### Alterar Plantas por Página
-Modifique a propriedade `imagesPerPage` no construtor do `ImageModel`.
-
-## 🐛 Debug e Desenvolvimento
-
-A aplicação expõe métodos globais para debug:
-
-```javascript
-// Acessar a aplicação
-window.galleryApp
-
-// Obter estatísticas
-galleryApp.getController().getDetailedStats()
-
-// Testar funcionalidades
-galleryApp.testFunctionality()
-
-// Obter plantas filtradas
-galleryApp.getController().getFilteredImages()
-```
 
 ## 📱 Responsividade
 
@@ -187,37 +149,8 @@ O design é totalmente responsivo:
 - Mensagens de erro amigáveis
 - Botão de recarregar página
 
-## 🌿 Categorias Botânicas
-
-### Flores (🌸)
-- Plantas ornamentais com flores coloridas
-- Ideais para decoração e presentes
-- Variedades sazonais e perenes
-
-### Árvores (🌳)
-- Plantas lenhosas de grande porte
-- Fornecem sombra e oxigênio
-- Importantes para o ecossistema
-
-### Suculentas (🌵)
-- Plantas resistentes à seca
-- Ideais para iniciantes
-- Perfeitas para decoração interna
-
-### Ervas (🌿)
-- Plantas aromáticas e medicinais
-- Usadas na culinária e fitoterapia
-- Fáceis de cultivar em casa
-
-### Jardim (🏡)
-- Espaços verdes organizados
-- Combinam diferentes tipos de plantas
-- Promovem bem-estar e conexão com a natureza
 
 ## 📝 Licença
 
-Este projeto foi desenvolvido para fins educacionais, demonstrando a implementação do padrão MVC em JavaScript puro com foco em botânica.
+Este projeto foi desenvolvido para fins educacionais, demonstrando a implementação do padrão MVC em JavaScript puro com foco em floras.
 
----
-
-**Desenvolvido com ❤️ usando JavaScript puro e padrão MVC - Celebrando a beleza da flora!** 🌱 
