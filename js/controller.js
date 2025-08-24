@@ -24,7 +24,19 @@ class ImageController {
         this.view.setNextPageCallback(() => {
             this.handleNextPage();
         });
+
+        this.view.setImageClickCallback((imageId) => {
+        this.handleImageClick(imageId);
+    });
+
     }
+
+    handleImageClick(imageId) {
+    const image = this.model.getAllImages().find(img => img.id === imageId);
+    if (image) {
+        this.view.showModal(image);
+    }
+}
 
     initializeGallery() {
         // Inicializar a galeria com todas as imagens
@@ -97,7 +109,6 @@ class ImageController {
         });
     }
 
-
     // Método para obter estatísticas detalhadas
     getDetailedStats() {
         const stats = this.model.getStats();
@@ -117,13 +128,20 @@ class ImageController {
         this.updateGallery();
     }
 
-    // Método para obter imagens filtradas (para debug)
-    getFilteredImages() {
-        return this.model.getFilteredImages();
+    // Método para ir para página específica
+    goToPage(pageNumber) {
+        if (this.model.goToPage(pageNumber)) {
+            this.updateGallery();
+        }
     }
 
-    // Método para obter todas as imagens (para debug)
+    // Método para obter todas as imagens 
     getAllImages() {
         return this.model.getAllImages();
+    }
+
+    // Método para obter imagens filtradas
+    getFilteredImages() {
+        return this.model.getFilteredImages();
     }
 } 

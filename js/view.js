@@ -6,12 +6,37 @@ class ImageView {
         this.prevBtn = document.getElementById('prevBtn');
         this.nextBtn = document.getElementById('nextBtn');
         this.pageInfo = document.getElementById('pageInfo');
+        this.modal = document.getElementById('imageModal');
+        this.modalImage = document.getElementById('modalImage');
+        this.keywordsContainer = document.getElementById('keywordsContainer');
+        this.closeBtn = document.querySelector('.close-btn');
         
         this.setupEventListeners();
+        this.setupModalEvents();
+    }
+
+    setupModalEvents() {
+        // Fechar modal com botão X
+        this.closeBtn.addEventListener('click', () => {
+            this.hideModal();
+        });
+
+        // Fechar modal clicando fora
+        this.modal.addEventListener('click', (e) => {
+            if (e.target === this.modal) {
+                this.hideModal();
+            }
+        });
+
+        // Prevenir que cliques dentro do modal-content fechem o modal
+        this.modalContent = this.modal.querySelector('.modal-content');
+        this.modalContent.addEventListener('click', (e) => {
+            e.stopPropagation();
+        });
     }
 
     setupEventListeners() {
-        // Evento de busca
+        // Evento de buscar imagens
         this.searchInput.addEventListener('input', (e) => {
             this.onSearchChange && this.onSearchChange(e.target.value);
         });
@@ -34,7 +59,7 @@ class ImageView {
         });
     }
 
-    // Renderizar a galeria de plantas
+    // Mostrar a galeria de plantas
     renderGallery(plants) {
         // Aplicar efeito de fade out
         this.galleryContainer.classList.add('fade-out');
@@ -56,20 +81,24 @@ class ImageView {
         }, 150);
     }
 
-    // Renderizar plantas
+    // Mostrar cards das plantas
     renderPlants(plants) {
         this.galleryContainer.innerHTML = plants.map(plant => `
             <div class="image-card" data-id="${plant.id}">
                 <img src="${plant.url}" alt="${plant.title}" loading="lazy">
                 <div class="image-info">
                     <h3 class="image-title">${plant.title}</h3>
-                    <span class="image-category">${this.capitalizeFirst(plant.category)}</span>
+                    <span class="image-category">${Array.isArray(plant.category) ?
+                        plant.category.map(c => this.capitalizeFirst(c)).join(', ') : 
+                            this.capitalizeFirst(plant.category)}
+</span>
                 </div>
             </div>
         `).join('');
+        this.bindImageClick();
     }
 
-    // Renderizar mensagem de "nenhum resultado"
+    // Mostrar mensagem de "nenhum resultado"
     renderNoResults() {
         this.galleryContainer.innerHTML = `
             <div class="no-results">
@@ -102,12 +131,11 @@ class ImageView {
         this.searchInput.value = searchTerm;
     }
 
-    // Mostrar estatísticas
     showStats(stats) {
         console.log('Estatísticas da galeria de flora:', stats);
     }
 
-    // Método auxiliar para capitalizar primeira letra
+    // Método auxiliar para capitalizar primeira letra digitada
     capitalizeFirst(str) {
         return str.charAt(0).toUpperCase() + str.slice(1);
     }
@@ -135,7 +163,7 @@ class ImageView {
         card.style.animation = 'fadeInUp 0.6s ease forwards';
     }
 
-    // Mostrar loading
+    // Mostrar carregamento
     showLoading() {
         this.galleryContainer.innerHTML = `
             <div class="loading" style="text-align: center; padding: 2rem;">
@@ -145,8 +173,56 @@ class ImageView {
         `;
     }
 
-    // Esconder loading
+    // Esconder carregamento
     hideLoading() {
-        // O loading será substituído pela renderização normal
+       
     }
-} 
+
+    setImageClickCallback(callback) {
+        this.onImageClick = callback;
+    }
+
+    bindImageClick() {
+        const imageCards = document.querySelectorAll('.image-card');
+        imageCards.forEach(card => {
+            card.addEventListener('click', () => {
+                const id = parseInt(card.dataset.id);
+                if (this.onImageClick) {
+                    this.onImageClick(id);
+                }
+            });
+        });
+    }
+
+    showModal(image) {
+        // Atualizar conteúdo do modal
+        this.modalImage.src = image.url;
+        this.modalImage.alt = image.title;
+
+        // Mostrar keywords
+        this.keywordsContainer.innerHTML = image.keywords
+            .map(keyword => `<span>${keyword}</span>`)
+            .join('');
+
+        // Mostrar modal com animação
+        this.modal.classList.add('show');
+        document.body.style.overflow = 'hidden'; 
+
+        setTimeout(() => {
+            this.closeBtn.focus();
+        }, 100);
+    }
+
+    hideModal() {
+        // Iniciar animação de fade out
+        this.modal.classList.remove('show');
+        document.body.style.overflow = ''; 
+        
+        // Limpar conteúdo após animação
+        setTimeout(() => {
+            this.modalImage.src = '';
+            this.modalImage.alt = '';
+            this.keywordsContainer.innerHTML = '';
+        }, 300);
+    }
+}
