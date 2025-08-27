@@ -68,6 +68,7 @@ gallery-mvc/
 - **Suculentas**: Echeveria, aloe vera, cacto, sedum
 - **Ervas**: Manjericão, alecrim, hortelã, sálvia
 - **Frutíferas**: Laranjeira, figueira, romãzeira , mangueira
+=======
 
 ### Sistema de Busca
 - Pesquisa em tempo real
@@ -152,4 +153,3 @@ O design é totalmente responsivo:
 ## 📝 Licença
 
 Este projeto foi desenvolvido para fins educacionais, demonstrando a implementação do padrão MVC em JavaScript puro com foco em floras.
-
