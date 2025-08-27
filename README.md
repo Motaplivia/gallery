@@ -59,7 +59,7 @@ gallery/
 - **Árvores**: Carvalho, bambu, palmeira, bétula
 - **Suculentas**: Echeveria, aloe vera, cacto, sedum
 - **Ervas**: Manjericão, alecrim, hortelã, sálvia
-- **Jardim**: Jardim zen, vertical, de flores, botânico
+- **Frutíferas**: laranja, romã, manga, figo
 
 ### Sistema de Busca
 - Pesquisa em tempo real
