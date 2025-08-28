@@ -3,6 +3,7 @@
     --color-green: #4a7c59;
     --color-green-olive: #6b8e23;
     --color-green-light: #60a274;
+    --color-green-bold: #478b5c;
 
     --color-gray-icon: #888;
     --color-gray-border: #e1e5e9;
@@ -61,7 +62,8 @@ body {
 
 .search-wrapper {
     position: relative;
-    width: 100%;
+    width: 95%;
+    display: flex; 
 }
 
 .search-wrapper .search-icon {
@@ -72,16 +74,47 @@ body {
     color: var(--color-gray-icon);
     pointer-events: none; 
     font-size: 1rem;
+    z-index: 2;
 }
 
 .search-wrapper .search-input {
     padding-left: 40px;
     width: 100%;
+    border-top-right-radius: 0; 
+    border-bottom-right-radius: 0; 
 }
 
 .search-section {
     margin-bottom: 1.5rem;
 }
+
+.search-btn {
+    padding: 0 1.2rem;
+    background: var(--color-green-light);
+    border: 2px solid var(--color-green-light);
+    border-left: none; 
+    color: var(--color-white);
+    font-weight: bolder;
+    font-size: 20px;
+    border-radius: 0 12px 12px 0;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 10rem;
+}
+
+.search-btn:hover {
+    background: var(--color-green-bold);
+    border-color: var(--color-green-bold);
+}
+
+.search-input:focus {
+    border-color: var(--color-green);
+    box-shadow: 0 0 0 3px rgba(74, 124, 89, 0.1);
+}
+
 
 .search-input {
     width: 100%;
@@ -304,7 +337,7 @@ body {
     height: 100%;
     overflow: auto;
     background-color: var(--color-black-rgba-80);
-    padding-top: 60px;
+    padding-top: 50px;
     opacity: 0;
     visibility: hidden;
     transition: opacity 0.3s ease, visibility 0.3s ease;
@@ -342,8 +375,8 @@ body {
 }
 
 .close-btn {
-    font-size: 2rem;
-    font-weight: bold;
+    font-size: 3rem;
+    font-weight: 400;
     color: var(--color-green);
     background: none;
     border: none;
