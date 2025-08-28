@@ -42,15 +42,6 @@ gallery/
 └── README.md           # Documentação
 ```
 
-## 🚀 Como Usar
-
-1. **Clone ou baixe o projeto**
-2. **Abra o arquivo `index.html` em um navegador**
-3. **Explore as funcionalidades**:
-   - Clique nas categorias para filtrar plantas
-   - Use o campo de busca para encontrar plantas específicas
-   - Navegue pelas páginas usando os botões de paginação
-
 ## 🎯 Funcionalidades Detalhadas
 
 ### Filtros de Categoria
@@ -213,6 +204,18 @@ O design é totalmente responsivo:
 - Espaços verdes organizados
 - Combinam diferentes tipos de plantas
 - Promovem bem-estar e conexão com a natureza
+
+## 🚀 Como Usar
+
+1. **Clone ou baixe o projeto**
+2. **Abra o projeto no VS Code**
+3. **Execute com a extensão Live Server:**:
+   - Clique com o botão direito no arquivo index.html e escolha "Open with Live Server"
+   - Ou clique no botão "Go Live" no canto inferior direito do VS Code
+4. **Explore as funcionalidades:**:
+   - Clique nas categorias para filtrar plantas
+   - Use o campo de busca para encontrar plantas específicas
+   - Navegue pelas páginas usando os botões de paginação
 
 ## 📝 Licença
 
