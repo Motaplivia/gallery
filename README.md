@@ -66,7 +66,6 @@ gallery-mvc/
 - Busca por nome, categoria ou características
 
 ### Paginação
-- 8 plantas por página
 - Navegação anterior/próxima
 - Indicador de página atual
 - Botões desabilitados quando apropriado
